@@ -8,6 +8,7 @@ cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 
+
 mongoClient = MongoClient('mongodb://127.0.0.1:27017')
 db = mongoClient.get_database('names_db')
 names_col = db.get_collection('names_col')
@@ -28,6 +29,7 @@ def getnames():
             if count == 4:
             	break
     return json.dumps(names_json)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
